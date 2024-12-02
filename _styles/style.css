@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+
+/* VARIAVEIS */
+:root {
+    --cor_white: #ffffff;
+    --cor_black: #000000;
+    --cor_destaque: #1a90ff;
+    --cor_background: #02172a;
+    --font: Arial, Helvetica, sans-serif;
+}
+
+/* PROPRIEDADES GLOBAIS */
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: var(--font);
+}
+
+/* CABEÇALHO */
+
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: var(--cor_background);
+}
+
+#logo_txt span#mobile {
+    display: none;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    margin: 5px 50px 5px 20px;
+}
+
+#logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+#logo img {
+    width: 64px;
+    height: 64px;
+}
+
+#logo #logo_txt {
+    align-items: center;
+    color: var(--cor_white);
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+#logo #logo_txt * {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Menu Mobile */
+
+#btn-mobile {
+    display: none;
+    color: var(--cor_white);
+    background-color: var(--cor_background);
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+@media (max-width: 630px) {
+    #logo_txt span#pc {
+        display: none;
+    }
+
+    #logo_txt span#mobile {
+        display: flex;
+    }
+
+    main article.photo {
+        display: block;
+    }
+
+    main article.photo .photo_pic {
+        display: block;
+        margin: 10px auto 10px auto;
+    }
+
+}
+
+@media (max-width: 1010px) {
+    
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 93px;
+        right: 0px;
+        background-color: var(--cor_background);
+        transition: .6s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    #op.active #menu {
+        height: calc(100vh - 93px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+
+    #menu li {
+        margin: 8px 0px 8px 0px;
+        padding: 30px;
+    }
+
+    #menu a {
+        display: block;
+        border-bottom: 2px solid #00000033;
+        text-align: center;
+    }
+
+    #btn-mobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+
+    #op.active #btn-mobile {
+        color: var(--cor_white);
+        background-color: var(--cor_destaque);
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+
+    #op-ico {
+        display: block;
+        border-top: 2px solid;
+        width: 20px;
+    }
+
+    #op-ico::after, #op-ico::before {
+        position: relative;
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        margin-top: 5px;
+        transition: 0.3s;
+    }
+
+    #op.active #op-ico {
+        border-top-color: transparent;
+    }
+
+    #op.active #op-ico::before {
+        transform: rotate(135deg);
+    }
+
+    #op.active #op-ico::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
+
+
+/* ----------- */
+
+nav #menu {
+    display: block;
+}
+
+nav #menu > li {
+    text-decoration: none;
+    list-style: none;
+    display: inline;
+}
+
+#menu li a {
+    text-decoration: none;
+    color: var(--cor_white);
+    transition: 0.3s;
+    padding: 5px;
+}
+
+#menu li a.actived {
+    color: var(--cor_destaque);
+}
+
+#menu li a:hover {
+    color: var(--cor_destaque);
+}
+
+/* CORPO DO SITE */
+
+h1 {
+    padding: 5px;
+    text-align: center;
+    font-size: 22pt;
+}
+
+main {
+    background: url("../_imagens/fundo2.jpeg");
+    background-size: 100%;
+    height: calc(100vh - 98px);
+}
+
+main p {
+    padding: 10px;
+    margin: 10px;
+    text-align: justify;
+    text-indent: 30pt;
+}
+
+main ul {
+    padding: 10px;
+    margin: 10px;
+    list-style: none;
+}
+
+/* Seção e artigos do site */
+/* Aqui separa os textos e as fotos */
+
+section {
+    background-color: var(--cor_white);
+    height: calc(100vh - 98px);
+    max-width: 1200px;
+    margin: auto;
+}
+
+article.text {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px;
+    background-color: var(--cor_white);
+}
+
+article.photo {
+    max-width: 1200px;
+    display: flex;
+    margin: auto;
+    background-color: #d3d3d3;
+    padding: 15px;
+}
+
+article.photo .photo_pic {
+    margin: auto;
+    text-align: center;
+}
+
+article.photo .photo_body {
+    margin: auto;
+}
+
+
+.pdf {
+    width: 100%;
+    height: 1000px;
+}
